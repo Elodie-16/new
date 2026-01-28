@@ -1,0 +1,277 @@
+/* =========================
+RESET DE BASE
+   ========================= */
+
+/* Inclut padding et border dans les tailles des éléments */
+* { box-sizing: border-box; }
+
+/* Supprime les marges par défaut et force la hauteur plein écran */
+html, body {
+    height: 100%;
+    margin: 0%;
+}
+
+/* =========================
+ÉCRAN PRINCIPAL
+   ========================= */
+
+.screen {
+    min-height: 100vh;          /* prend toute la hauteur de l'écran */
+    display: grid;
+    place-items: center;        /* centre le contenu horizontal + vertical */
+}
+
+/* Overlay sombre au-dessus du fond */
+.screen::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+EFFET VERRE (REFLET)
+   ========================= */
+
+.glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;                   /* prend toute la taille du parent */
+    border-radius: inherit;     /* même arrondi que le panneau */
+    width: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0)
+    );                          /* reflet lumineux */
+    pointer-events: none;       /* laisse passer les clics */
+}
+
+/* =========================
+    SECTION HERO (fond ciel)
+   ========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    background: url('../images/ciel_soleil.png');
+    background-size: cover;     /* couvre tout l'écran */
+    background-position: center;
+}
+
+/* Logo en haut à gauche */
+.brand {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+/* =========================
+    TITRE PRINCIPAL
+   ========================= */
+
+.hero-title {
+    
+    font-size: 64px;
+    text-align: center;
+}
+
+/* Bordure + ombre générique */
+.border {
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+PANNEAU VERRE (CARTE)
+========================= */
+
+.glass-panel {
+    margin-top: -500px;
+    width: min(760px, 92vw);    /* responsive */
+    padding: 26px 34px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+
+
+    /* Effet verre flou */
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+
+    /* Bord + ombre */
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 18px 40px rgba(255, 255, 255, 0.37);
+}
+
+/* Carte encore plus floue */
+.glass-card {
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+}
+.glass-content {
+    text-align: center;
+}
+
+/* Zone des contrôles */
+.controls {
+    justify-content: space-around;
+    display: flex;
+}
+
+.g-play {
+    justify-content: center;
+}
+
+/* =========================
+ANCIEN STYLE BOUTON (non utilisé pour JOUER principal)
+   ========================= */
+
+.play-btn {
+    color: #ffffff;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    max-width: 80%;
+    height: 74px;
+    border-radius: 22px;
+    background: #f3c23d;
+    border: none;
+    cursor: pointer;
+    font-size: 34px;
+    font-weight: 900;
+    box-shadow: 0 14 0 #d1b100;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    width: clamp(200px, 50%, 300px);
+}
+
+/* Effet enfoncé */
+.play-btn:active {
+    transform: translateX(-50%) translateY(4px);
+    box-shadow: 0 10px 0 #ffca60;
+}
+
+/* Légère luminosité au survol */
+.play-btn:hover {
+    filter: brightness(1.05);
+}
+
+/* =========================
+POLICE
+   ========================= */
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins/Poppins-Bold.ttf");
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* ===============
+BOUTON JOUER 
+   ===============*/
+
+.bulle-jouer {
+    background-color: #FFD84D;     /* jaune */
+    color: #ffffff;                   /* texte noir */
+    border: none;
+    padding: 14px 38px;
+    font-weight: 900;
+    font-size: 34px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-radius: 18px;           /* coins arrondis */
+
+    /* Effet bouton en relief */
+    box-shadow: 0 6px 0 #d4a900;
+    transition: all 0.1s ease-in-out;
+}
+
+/* Animation quand on clique */
+.bulle-jouer:active {
+    transform: translateX(-50%) translateY(4px); /* descend */
+    box-shadow: 0 2px 0 #d4a900;                 /* ombre réduite */
+}
+
+/* ==============
+NAVBAR
+   ============== */
+
+.navbar {
+    position: fixed;
+    padding: 16px 0;
+}
+
+/* Liste menu */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    gap: 24px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Liens */
+.navbar a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+/* Conteneur navbar */
+.navbar {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0% 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Logo + nom */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* Image logo */
+.logo {
+    height: 45px;
+    width: auto;
+    margin-left: 24px;
+}
+/* =============
+HEADER PAGE
+   ============= */
+
+.page-header-space {
+    height: calc(100vh - 64px); /* retire la hauteur de la navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Titre dans le header */
+.page-header h1 {
+    color: rgb(255, 131, 131);
+    font-size: 3rem;
+    margin: 0;
+    text-align: center;
+}
