@@ -1,0 +1,112 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Empêche le scroll */
+    font-family: 'Arial', sans-serif;
+    
+    /* --- FOND SANS DOUBLONS --- */
+    background-image: url('assets/img/cielsoleil.png'); /* Vérifie bien ce chemin */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* --- LE CONTENEUR PRINCIPAL --- */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Logo en haut à gauche */
+.brand {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Logo central (Tête de licorne) */
+.hero-content {
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.hero-logo {
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+/* --- LE PANNEAU DE VERRE (GLASSMORPHISM) --- */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.2); /* Fond blanc très transparent */
+    backdrop-filter: blur(12px);          /* L'effet de flou magique */
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: #1a2a6c; /* Couleur de texte sombre pour lisibilité */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.g-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.g-mission {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.g-text {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #f0f0f0;
+}
+
+.g-controls {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* --- LE BOUTON JOUER --- */
+.bulle-jouer {
+    margin-top: 30px;
+    padding: 15px 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background: #FFD700; /* Jaune Or */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px #ccac00; /* Ombre sous le bouton */
+    transition: all 0.2s ease;
+}
+
+.bulle-jouer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px #ccac00;
+    background: #ffdf33;
+}
+
+.bulle-jouer:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #ccac00;
+}

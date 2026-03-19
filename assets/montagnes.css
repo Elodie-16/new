@@ -1,0 +1,43 @@
+body, html {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background-image: url('img/cielsoleil.png');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Courier New', monospace;
+}
+
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+}
+
+.pixel-hud {
+    position: absolute;
+    top: 20px; left: 20px;
+    background: white;
+    border: 3px solid #000;
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 100;
+    min-width: 170px;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+}
+
+.hud-header { display: flex; align-items: center; gap: 15px; }
+.mini-logo { width: 50px; height: 50px; border-radius: 8px; border: 1px solid #ddd; }
+.elements-column { display: flex; flex-direction: column; gap: 5px; color: #000; font-weight: bold; }
+.hud-row, .level-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.level-row { border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 5px; }
+
+.hearts-row img { width: 18px; height: 18px; margin-left: 2px; }
+
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); display: flex; justify-content: center; align-items: center; z-index: 200;
+}
+.modal { background: white; padding: 30px; border-radius: 15px; border: 4px solid #000; text-align: center; }
+button { padding: 10px 20px; background: #FFD700; border: 2px solid #000; cursor: pointer; font-weight: bold; }
